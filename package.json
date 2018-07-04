@@ -1,0 +1,33 @@
+{
+  "name": "typescript-stringcaster",
+  "version": "1.0.0",
+  "description": "stringcaster for typescript with decorators",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --declaration",
+    "format": "prettier-eslint --parser typescript 'src/**/*.ts' '__tests' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vnenkpet/typescript-stringcaster.git"
+  },
+  "keywords": [
+    "stringcaster",
+    "dotenv",
+    "typescript",
+    "env",
+    "dotenv-utils"
+  ],
+  "author": "Petr Vnenk <petr.vnenk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vnenkpet/typescript-stringcaster/issues"
+  },
+  "homepage": "https://github.com/vnenkpet/typescript-stringcaster#readme",
+  "devDependencies": {
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1",
+    "stringcaster": "^0.3.1",
+    "typescript": "^2.9.2"
+  }
+}
