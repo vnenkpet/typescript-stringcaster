@@ -1,6 +1,3 @@
-// this is a proof-of-concept solution for stringcaster/dotenv-utils for typescript
-// this should go into its own package if it works for us.
-
 export { toBoolean, toArray, toNumber, toString, toObject } from "stringcaster";
 
 // inject decorator
