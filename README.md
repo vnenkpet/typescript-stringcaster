@@ -51,3 +51,14 @@ class Config {
 
 export default new Config();
 ```
+
+## Docs
+
+### @inject decorator
+
+#### Parameters:
+
+- `source` *(required)* - A object containing the values source (e. g. process.env)
+- `defaultValue` *optional* - default value that will be provided if `source` does not contain the value for this key 
+- `sourceKey` *optional* - Use if the key in `source` object is different from the property name
+- `cast` *optional* - A convert function, will be called on the property value. Can be either a cast function from stringcaster or custom function.
