@@ -2,7 +2,8 @@
   "name": "typescript-stringcaster",
   "version": "1.0.0",
   "description": "stringcaster for typescript with decorators",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc --declaration",
     "format": "prettier-eslint --parser typescript 'src/**/*.ts' '__tests' --write"
