@@ -1,7 +1,12 @@
 export { toBoolean, toArray, toNumber, toString, toObject } from "stringcaster";
-export declare function inject({ cast, defaultValue, source, sourceKey }: {
-    cast?: any;
+interface ISource {
+    [key: string]: string | undefined;
+}
+declare type CastFunction = (val: string) => any;
+export declare function envVar({ cast, defaultValue, source, sourceKey }: {
+    cast?: CastFunction;
     defaultValue?: any;
-    source: any;
+    source: ISource | NodeJS.ProcessEnv;
     sourceKey?: string;
 }): Function;
+export declare const inject: typeof envVar;

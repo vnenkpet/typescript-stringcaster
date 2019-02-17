@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/vnenkpet/typescript-stringcaster#readme",
   "devDependencies": {
+    "@types/node": "^11.9.4",
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
     "stringcaster": "^0.3.1",

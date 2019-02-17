@@ -3,8 +3,8 @@
 Implementation of [stringcaster](https://www.npmjs.com/package/stringcaster) package for use with Typescript classes and decorators.
 
 See [stringcaster](https://www.npmjs.com/package/stringcaster) docs for cast options.
-This package includes all the functionality of *stringcaster* and
-adds the `inject` property decorator on top of it.
+This package includes all the functionality of _stringcaster_ and
+adds the `envVar` property decorator on top of it.
 
 ## Getting Started
 
@@ -21,31 +21,38 @@ INFO_OBJECT=date: 2017, author: John Doe
 ```
 
 And you need to create a `config` object using this data.
-Now using the `inject` decorator you can do the following:
+Now using the `envVar` decorator you can do the following:
 
 ```typescript
 // /config.ts
 
-import { inject, toBoolean, toString, toNumber, toArray, toObject } from "typescript-stringcaster";
+import {
+  envVar,
+  toBoolean,
+  toString,
+  toNumber,
+  toArray,
+  toObject
+} from "typescript-stringcaster";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const source = process.env;
+const source = process.env; // you actually have to pass this
 
 class Config {
-  @inject({ cast: toBoolean, defaultValue: false, source })
+  @envVar({ cast: toBoolean, defaultValue: false, source })
   MINIFY: boolean;
 
-  @inject({ cast: toString, defaultValue: "en-US", source })
+  @envVar({ cast: toString, defaultValue: "en-US", source })
   DEFAULT_LOCALE: string;
 
-  @inject({ cast: toArray, source })
+  @envVar({ cast: toArray, source })
   SUPPORTED_LOCALES: [string];
 
-  @inject({ cast: toNumber, source })
+  @envVar({ cast: toNumber, source })
   PORT: number;
-  
-  @inject({ cast: toObject, source, sourceKey: "INFO_OBJECT" })
+
+  @envVar({ cast: toObject, source, sourceKey: "INFO_OBJECT" })
   INFO: object;
 }
 
@@ -54,11 +61,11 @@ export default new Config();
 
 ## Docs
 
-### @inject decorator
+### @envVar decorator
 
 #### Parameters:
 
-- `source` *(required)* - A object containing the values source (e. g. process.env)
-- `defaultValue` *optional* - default value that will be provided if `source` does not contain the value for this key 
-- `sourceKey` *optional* - Use if the key in `source` object is different from the property name
-- `cast` *optional* - A convert function, will be called on the property value. Can be either a cast function from stringcaster or custom function.
+- `source` _(required)_ - A object containing the values source (e. g. process.env)
+- `defaultValue` _optional_ - default value that will be provided if `source` does not contain the value for this key
+- `sourceKey` _optional_ - Use if the key in `source` object is different from the property name
+- `cast` _optional_ - A convert function, will be called on the property value. Can be either a cast function from stringcaster or custom function.

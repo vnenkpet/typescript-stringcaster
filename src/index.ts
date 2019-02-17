@@ -1,15 +1,21 @@
 export { toBoolean, toArray, toNumber, toString, toObject } from "stringcaster";
 
-// inject decorator
-export function inject({
+interface ISource {
+  [key: string]: string | undefined;
+}
+
+type CastFunction = (val: string) => any;
+
+// envVar decorator
+export function envVar({
   cast = (val: string) => val,
   defaultValue,
   source,
   sourceKey
 }: {
-  cast?: any;
+  cast?: CastFunction;
   defaultValue?: any;
-  source: any;
+  source: ISource | NodeJS.ProcessEnv;
   sourceKey?: string;
 }): Function {
   return function(target: any, propertyKey: string) {
@@ -26,3 +32,6 @@ export function inject({
     target[targetKey] = cast(source[targetKey]);
   };
 }
+
+// backwards compatibility alias
+export const inject = envVar;
