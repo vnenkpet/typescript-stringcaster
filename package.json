@@ -1,6 +1,6 @@
 {
   "name": "typescript-stringcaster",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "stringcaster for typescript with decorators",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
